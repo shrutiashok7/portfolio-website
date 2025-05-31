@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shruti Ashok | Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Copperplate:wght@300;400&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Copperplate', 'Times New Roman', serif;
+      font-weight: 300;
+      background: white;
+      color: #333;
+      overflow-x: hidden;
+      transition: background 0.8s ease, color 0.8s ease;
+      cursor: none;
+    }
+    
+    body.dark {
+      background: #000;
+      color: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+    }
+    
+    /* Custom Cursor */
+    .cursor {
+      position: fixed;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 12px solid #c8a2c8;
+      pointer-events: none;
+      z-index: 9999;
+      transition: none;
+      mix-blend-mode: normal;
+    }
+    
+    body.dark .cursor {
+      border-bottom-color: #e6ccff;
+    }
+    
+    .cursor-follower {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: rgba(200, 162, 200, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.1s ease;
+    }
+    
+    body.dark .cursor-follower {
+      background: linear-gradient(45deg, rgba(230, 204, 255, 0.4), rgba(204, 221, 255, 0.4), rgba(255, 204, 238, 0.4));
+    }
+    
+    /* Mode Toggle */
+    #mode-toggle {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: transparent;
+      border: 2px solid #bb86fc;
+      color: #bb86fc;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Copperplate', serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    body.dark #mode-toggle {
+      border: 2px solid transparent;
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
+    }
+    
+    #mode-toggle:hover {
+      background: #bb86fc;
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    body.dark #mode-toggle:hover {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      color: #000;
+      transform: scale(1.05);
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      left: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+    }
+    
+    .nav ul {
+      list-style: none;
+    }
+    
+    .nav li {
+      margin: 20px 0;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+    
+    .nav li:hover {
+      opacity: 1;
+      transform: translateX(10px);
+    }
+    
+    .nav a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    
+    body.dark .nav a {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+    }
+    
+    .hero h1 {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      color: #bb86fc;
+      margin-bottom: 0.3rem;
+      letter-spacing: 12px;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
+    
+    body.dark .hero h1 {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 15px;
+    }
+    
+    .hero p {
+      font-size: clamp(0.6rem, 1.5vw, 0.9rem);
+      font-weight: 300;
+      opacity: 0.8;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.7s forwards;
+    }
+    
+    body.dark .hero p {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 8px;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.7s forwards;
+    }
+    
+    /* 3D Shape Container */
+    .shape-container {
+      width: 400px;
+      height: 400px;
+      perspective: 1500px;
+      z-index: 5;
+      position: relative;
+    }
+    
+    /* Rotation Controls */
+    .rotation-controls {
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 100;
+    }
+    
+    .rotate-btn {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #bb86fc;
+      background: transparent;
+      border-radius: 50%;
+      color: #bb86fc;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: 300;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    body.dark .rotate-btn {
+      border: 2px solid transparent;
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
+    }
+    
+    .rotate-btn:hover {
+      background: #bb86fc;
+      color: white;
+      transform: scale(1.1);
+    }
+    
+    body.dark .rotate-btn:hover {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      color: #000;
+      transform: scale(1.1);
+    }
+    
+    .rotate-btn:active {
+      transform: scale(0.95);
+    }
+    
+    .shape-3d {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.1s ease-out;
+    }
+    
+    .face {
+      position: absolute;
+      width: 300px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      border-radius: 15px;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(187, 134, 252, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 15px;
+      text-align: center;
+    }
+    
+    .face:hover {
+      transform: translateZ(250px) scale(1.05) !important;
+      border-color: rgba(187, 134, 252, 0.5);
+      height: 160px;
+      z-index: 9999;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(187, 134, 252, 0.2);
+    }
+    
+    .face-title {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: #bb86fc;
+    }
+    
+    body.dark .face-title {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .face-content {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      line-height: 1.4;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    body.dark .face-content {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      opacity: 0.9;
+    }
+    
+    .face:hover .face-content {
+      max-height: 100px;
+    }
+    
+    /* Face Colors */
+    .about { 
+      background: rgba(231, 205, 246, 0.3);
+      transform: rotateY(0deg) translateZ(200px);
+    }
+    .about:hover {
+      transform: rotateY(0deg) translateZ(250px) scale(1.05) !important;
+    }
+    
+    .skills { 
+      background: rgba(255, 230, 245, 0.3);
+      transform: rotateY(51.42deg) translateZ(200px);
+    }
+    .skills:hover {
+      transform: rotateY(51.42deg) translateZ(250px) scale(1.05) !important;
+    }
+    
+    .experience { 
+      background: rgba(187, 230, 240, 0.3);
+      transform: rotateY(102.84deg) translateZ(200px);
+    }
+    .experience:hover {
+      transform: rotateY(102.84deg) translateZ(250px) scale(1.05) !important;
+    }
+    
+    .projects { 
+      background: rgba(188, 234, 207, 0.3);
+      transform: rotateY(154.26deg) translateZ(200px);
+    }
+    .projects:hover {
+      transform: rotateY(154.26deg) translateZ(250px) scale(1.05) !important;
+    }
+    
+    .education { 
+      background: rgba(251, 251, 188, 0.3);
+      transform: rotateY(205.68deg) translateZ(200px);
+    }
+    .education:hover {
+      transform: rotateY(205.68deg) translateZ(250px) scale(1.05) !important;
+    }
+    
+    .certificates { 
+      background: rgba(251, 161, 160, 0.3);
+      transform: rotateY(257.1deg) translateZ(200px);
+    }
+    .certificates:hover {
+      transform: rotateY(257.1deg) translateZ(250px) scale(1.05) !important;
+    }
+    
+    .contact { 
+      background: rgba(253, 221, 230, 0.3);
+      transform: rotateY(308.52deg) translateZ(200px);
+    }
+    .contact:hover {
+      transform: rotateY(308.52deg) translateZ(250px) scale(1.05) !important;
+    }
+    
+    body.dark .face {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.1), rgba(204, 221, 255, 0.1), rgba(255, 204, 238, 0.1));
+      border-color: rgba(230, 204, 255, 0.3);
+    }
+    
+    body.dark .face:hover {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.2), rgba(204, 221, 255, 0.2), rgba(255, 204, 238, 0.2));
+      border-color: rgba(230, 204, 255, 0.6);
+      box-shadow: 0 10px 20px rgba(230, 204, 255, 0.3);
+    }
+    
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      background: linear-gradient(45deg, #bb86fc, #e7cdf6);
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    body.dark .floating-element {
+      background: linear-gradient(45deg, #e6ccff, #ccddff, #ffccee);
+      opacity: 0.15;
+    }
+    
+    .floating-element:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .floating-element:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 60%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+    
+    .floating-element:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+    
+    .floating-element:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 10%;
+      right: 25%;
+      animation-delay: 1s;
+    }
+    
+    .floating-element:nth-child(5) {
+      width: 90px;
+      height: 90px;
+      bottom: 40%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+    
+    .floating-element:nth-child(6) {
+      width: 70px;
+      height: 70px;
+      top: 45%;
+      left: 5%;
+      animation-delay: 5s;
+    }
+    
+    .floating-element:nth-child(7) {
+      width: 110px;
+      height: 110px;
+      bottom: 10%;
+      right: 40%;
+      animation-delay: 2.5s;
+    }
+    
+    .floating-element:nth-child(8) {
+      width: 60px;
+      height: 60px;
+      top: 75%;
+      left: 35%;
+      animation-delay: 4.5s;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+    
+      /* Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+      
+      .hero-content {
+        top: 40px;
+      }
+      
+      .hero h1 {
+        font-size: 0.9rem;
+        letter-spacing: 8px;
+      }
+      
+      body.dark .hero h1 {
+        letter-spacing: 10px;
+      }
+      
+      .hero p {
+        font-size: 0.6rem;
+        letter-spacing: 4px;
+      }
+      
+      body.dark .hero p {
+        letter-spacing: 5px;
+      }
+      
+      .shape-container {
+        width: 300px;
+        height: 300px;
+      }
+      
+      .face {
+        width: 200px;
+        height: 80px;
+        font-size: 0.9rem;
+      }
+      
+      .rotation-controls {
+        bottom: -60px;
+        gap: 15px;
+      }
+      
+      .rotate-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      #mode-toggle {
+        top: 20px;
+        right: 20px;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  
+  <button id="mode-toggle">
+    <span class="mode-text">Dark Mode</span>
+  </button>
+  
+  <nav class="nav">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <main class="hero">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <div class="hero-content">
+      <h1>Shruti Ashok</h1>
+      <p>Student | B.Tech in Computing & Data Science</p>
+    </div>
+    
+    <div class="shape-container">
+      <div class="shape-3d" id="shape3d">
+        <div class="face about" data-section="about">
+          <div class="face-title">About</div>
+          <div class="face-content">
+            B.Tech Computing & Data Science at Sai University. Passionate about technology, design, and social impact.
+          </div>
+        </div>
+        <div class="face skills" data-section="skills">
+          <div class="face-title">Skills</div>
+          <div class="face-content">
+            C++, Python, Java, JavaScript, TypeScript, HTML, CSS, MySQL, MongoDB, AWS, GitHub, Cybersecurity
+          </div>
+        </div>
+        <div class="face experience" data-section="experience">
+          <div class="face-title">Experience</div>
+          <div class="face-content">
+            Interned at LTI Mindtree and Acxhange India. Led social media strategy for Rethinking Refugees.
+          </div>
+        </div>
+        <div class="face projects" data-section="projects">
+          <div class="face-title">Projects</div>
+          <div class="face-content">
+            C++ To-Do app, Portfolio website, e-Yantra competitions, path-planning and robotic control systems
+          </div>
+        </div>
+        <div class="face education" data-section="education">
+          <div class="face-title">Education</div>
+          <div class="face-content">
+            BVM Global Chennai • B.Tech at Sai University (2022–2026) • Research initiatives focus
+          </div>
+        </div>
+        <div class="face certificates" data-section="certificates">
+          <div class="face-title">Certificates</div>
+          <div class="face-content">
+            Cloud Computing (NPTEL IIT), Blockchain Applications (2025), Google Cybersecurity Professional, JLPT
+          </div>
+        </div>
+        <div class="face contact" data-section="contact">
+          <div class="face-title">Contact</div>
+          <div class="face-content">
+            shrutiashok445@gmail.com • +91 7550074988 • GitHub: shrutiashok7 • LinkedIn: shruti-ashok-641326310
+          </div>
+        </div>
+      </div>
+      
+      <div class="rotation-controls">
+        <button class="rotate-btn" id="rotateLeft">←</button>
+        <button class="rotate-btn" id="rotateRight">→</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Cursor movement
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
+    
+    document.addEventListener('mousemove', (e) => {
+      // Immediate cursor movement with no transition for smooth response
+      cursor.style.left = `${e.clientX - 4}px`;
+      cursor.style.top = `${e.clientY - 12}px`;
+      
+      // Smooth follower movement
+      cursorFollower.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
+    });
+    
+    // Dark mode toggle
+    const modeToggle = document.getElementById('mode-toggle');
+    const modeText = document.querySelector('.mode-text');
+    
+    modeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      modeText.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+    });
+    
+    // 3D Shape rotation and mouse interaction
+    const shape3d = document.getElementById('shape3d');
+    const rotateLeftBtn = document.getElementById('rotateLeft');
+    const rotateRightBtn = document.getElementById('rotateRight');
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let baseRotationY = 0; // Base rotation controlled by buttons
+    let currentRotationY = 0;
+    let currentRotationX = 0;
+    
+    // Button rotation controls
+    rotateLeftBtn.addEventListener('click', () => {
+      baseRotationY -= 51.42; // Rotate by one face (360/7 degrees)
+    });
+    
+    rotateRightBtn.addEventListener('click', () => {
+      baseRotationY += 51.42; // Rotate by one face (360/7 degrees)
+    });
+    
+    // Mouse parallax (reduced influence)
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth) - 0.5;
+      mouseY = (e.clientY / window.innerHeight) - 0.5;
+      
+      targetX = -mouseY * 15; // Reduced mouse influence
+      targetY = mouseX * 15;
+    });
+    
+    // Smooth animation loop for 3D shape
+    function animate() {
+      // Smooth transition to target rotations
+      currentRotationX += (targetX - currentRotationX) * 0.05;
+      currentRotationY += ((baseRotationY + targetY) - currentRotationY) * 0.05;
+      
+      shape3d.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
+      
+      requestAnimationFrame(animate);
+    }
+    animate();
+    
+    // Face click interactions
+    document.querySelectorAll('.face').forEach(face => {
+      face.addEventListener('click', () => {
+        const section = face.dataset.section;
+        console.log(`Navigate to ${section} section`);
+        // Add your navigation logic here
+      });
+      
+      face.addEventListener('mouseenter', () => {
+        cursor.style.borderBottomColor = '#bb86fc';
+        cursor.style.transform += ' scale(1.3)';
+        cursorFollower.style.background = 'rgba(187, 134, 252, 0.5)';
+      });
+      
+      face.addEventListener('mouseleave', () => {
+        cursor.style.borderBottomColor = '#c8a2c8';
+        cursor.style.transform = cursor.style.transform.replace(' scale(1.3)', '');
+        cursorFollower.style.background = 'rgba(200, 162, 200, 0.3)';
+      });
+    });
+    
+    // Floating elements parallax
+    document.querySelectorAll('.floating-element').forEach((element, index) => {
+      document.addEventListener('mousemove', (e) => {
+        const speed = (index + 1) * 0.02;
+        const x = (e.clientX * speed);
+        const y = (e.clientY * speed);
+        element.style.transform += ` translate(${x}px, ${y}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
