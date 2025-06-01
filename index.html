@@ -25,9 +25,22 @@
     
     body.dark {
       background: #000;
-      color: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      color: #fff;
     }
-    
+    /* Fix for body.dark color gradient: 'color' does not accept gradient, so use background for text via backgrounds */
+    body.dark .hero h1,
+    body.dark .hero p,
+    body.dark .nav a,
+    body.dark .face-title,
+    body.dark .face-content,
+    body.dark #mode-toggle,
+    body.dark .back-btn {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
     /* Custom Cursor */
     .cursor {
       position: fixed;
@@ -60,7 +73,7 @@
     body.dark .cursor-follower {
       background: linear-gradient(45deg, rgba(230, 204, 255, 0.4), rgba(204, 221, 255, 0.4), rgba(255, 204, 238, 0.4));
     }
-    
+
     /* Mode Toggle */
     #mode-toggle {
       position: fixed;
@@ -101,7 +114,57 @@
       color: #000;
       transform: scale(1.05);
     }
-    
+
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      background: transparent;
+      border: 2px solid #bb86fc;
+      color: #bb86fc;
+      padding: 12px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Copperplate', serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      z-index: 1001;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50px);
+    }
+
+    .back-btn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    body.dark .back-btn {
+      border: 2px solid transparent;
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
+    }
+
+    .back-btn:hover {
+      background: #bb86fc;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    body.dark .back-btn:hover {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      color: #000;
+      transform: scale(1.05);
+    }
+
     /* Navigation */
     .nav {
       position: fixed;
@@ -109,6 +172,7 @@
       top: 50%;
       transform: translateY(-50%);
       z-index: 1000;
+      transition: opacity 0.5s ease;
     }
     
     .nav ul {
@@ -140,7 +204,7 @@
       background-clip: text;
       color: transparent;
     }
-    
+
     /* Hero Section */
     .hero {
       height: 100vh;
@@ -150,6 +214,7 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
+      transition: all 0.8s ease;
     }
     
     .hero-content {
@@ -159,6 +224,7 @@
       transform: translateX(-50%);
       text-align: center;
       z-index: 10;
+      transition: all 0.8s ease;
     }
     
     .hero h1 {
@@ -199,7 +265,7 @@
       opacity: 0;
       animation: fadeInUp 1s ease 0.7s forwards;
     }
-    
+
     /* 3D Shape Container */
     .shape-container {
       width: 400px;
@@ -207,9 +273,8 @@
       perspective: 1500px;
       z-index: 5;
       position: relative;
+      transition: all 0.8s ease;
     }
-    
-    /* Rotation Controls */
     .rotation-controls {
       position: absolute;
       bottom: -80px;
@@ -218,6 +283,7 @@
       display: flex;
       gap: 20px;
       z-index: 100;
+      transition: all 0.8s ease;
     }
     
     .rotate-btn {
@@ -333,7 +399,7 @@
     .face:hover .face-content {
       max-height: 100px;
     }
-    
+
     /* Face Colors */
     .about { 
       background: rgba(231, 205, 246, 0.3);
@@ -401,174 +467,264 @@
       border-color: rgba(230, 204, 255, 0.6);
       box-shadow: 0 10px 20px rgba(230, 204, 255, 0.3);
     }
-    
-    /* Floating Elements */
-    .floating-element {
+
+    /* Detailed Section Styles */
+    .detailed-section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      overflow-y: auto;
+      padding: 80px 40px 40px;
+    }
+
+    body.dark .detailed-section {
+      background: #000;
+    }
+
+    .detailed-section.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .detailed-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: slideInUp 0.6s ease 0.3s both;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.8;
+      letter-spacing: 2px;
+    }
+
+    .content-grid {
+      display: grid;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .content-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .content-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+
+    .card-content {
+      line-height: 1.8;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: '';
       position: absolute;
-      background: linear-gradient(45deg, #bb86fc, #e7cdf6);
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(187, 134, 252, 0.5), rgba(187, 134, 252, 0.1));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 40px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -35px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: #bb86fc;
       border-radius: 50%;
-      opacity: 0.1;
-      animation: float 6s ease-in-out infinite;
+      box-shadow: 0 0 0 4px rgba(187, 134, 252, 0.2);
     }
-    
-    body.dark .floating-element {
-      background: linear-gradient(45deg, #e6ccff, #ccddff, #ffccee);
-      opacity: 0.15;
+
+    .timeline-date {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
     }
-    
-    .floating-element:nth-child(1) {
-      width: 100px;
-      height: 100px;
-      top: 20%;
-      left: 10%;
-      animation-delay: 0s;
+
+    .timeline-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
     }
-    
-    .floating-element:nth-child(2) {
-      width: 150px;
-      height: 150px;
-      top: 60%;
-      right: 15%;
-      animation-delay: 2s;
+
+    .timeline-company {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 15px;
+      font-style: italic;
     }
-    
-    .floating-element:nth-child(3) {
-      width: 80px;
-      height: 80px;
-      bottom: 20%;
-      left: 20%;
-      animation-delay: 4s;
+
+    .timeline-description {
+      line-height: 1.6;
+      opacity: 0.9;
     }
-    
-    .floating-element:nth-child(4) {
-      width: 120px;
-      height: 120px;
-      top: 10%;
-      right: 25%;
-      animation-delay: 1s;
+
+    /* Section-specific backgrounds */
+    .about-section {
+      background: linear-gradient(135deg, rgba(231, 205, 246, 0.9), rgba(231, 205, 246, 0.7));
     }
-    
-    .floating-element:nth-child(5) {
-      width: 90px;
-      height: 90px;
-      bottom: 40%;
-      right: 10%;
-      animation-delay: 3s;
+
+    .skills-section {
+      background: linear-gradient(135deg, rgba(255, 230, 245, 0.9), rgba(255, 230, 245, 0.7));
     }
-    
-    .floating-element:nth-child(6) {
-      width: 70px;
-      height: 70px;
-      top: 45%;
-      left: 5%;
-      animation-delay: 5s;
+
+    .experience-section {
+      background: linear-gradient(135deg, rgba(187, 230, 240, 0.9), rgba(187, 230, 240, 0.7));
     }
-    
-    .floating-element:nth-child(7) {
-      width: 110px;
-      height: 110px;
-      bottom: 10%;
-      right: 40%;
-      animation-delay: 2.5s;
+
+    .projects-section {
+      background: linear-gradient(135deg, rgba(188, 234, 207, 0.9), rgba(188, 234, 207, 0.7));
     }
-    
-    .floating-element:nth-child(8) {
-      width: 60px;
-      height: 60px;
-      top: 75%;
-      left: 35%;
-      animation-delay: 4.5s;
+
+    .education-section {
+      background: linear-gradient(135deg, rgba(251, 251, 188, 0.9), rgba(251, 251, 188, 0.7));
     }
-    
+
+    .certificates-section {
+      background: linear-gradient(135deg, rgba(251, 161, 160, 0.9), rgba(251, 161, 160, 0.7));
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, rgba(253, 221, 230, 0.9), rgba(253, 221, 230, 0.7));
+    }
+
+    body.dark .about-section {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+    }
+
+    body.dark .skills-section {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+    }
+
+    body.dark .experience-section {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+    }
+
+    body.dark .projects-section {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+    }
+
+    body.dark .education-section {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+    }
+
+    body.dark .certificates-section {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+    }
+
+    body.dark .contact-section {
+      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+    }
+
     /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(180deg); }
-    }
-    
-      /* Responsive */
-    @media (max-width: 768px) {
-      .nav {
-        display: none;
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
       }
-      
-      .hero-content {
-        top: 40px;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      
-      .hero h1 {
-        font-size: 0.9rem;
-        letter-spacing: 8px;
-      }
-      
-      body.dark .hero h1 {
-        letter-spacing: 10px;
-      }
-      
-      .hero p {
-        font-size: 0.6rem;
-        letter-spacing: 4px;
-      }
-      
-      body.dark .hero p {
-        letter-spacing: 5px;
-      }
-      
-      .shape-container {
-        width: 300px;
-        height: 300px;
-      }
-      
-      .face {
-        width: 200px;
-        height: 80px;
-        font-size: 0.9rem;
-      }
-      
-      .rotation-controls {
-        bottom: -60px;
-        gap: 15px;
-      }
-      
-      .rotate-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-      }
-      
-      #mode-toggle {
-        top: 20px;
-        right: 20px;
-        padding: 8px 16px;
-        font-size: 0.8rem;
-      }
-    }
-    
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
+  <!-- Custom Cursor -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
-  
-  <button id="mode-toggle">
-    <span class="mode-text">Dark Mode</span>
-  </button>
-  
+
+  <!-- Mode Toggle -->
+  <button id="mode-toggle">Light/Dark Mode</button>
+
+  <!-- Back Button (shown only in detailed sections) -->
+  <button class="back-btn">Back to Main</button>
+
+  <!-- Navigation -->
   <nav class="nav">
     <ul>
       <li><a href="#about">About</a></li>
@@ -580,170 +736,222 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-  
-  <main class="hero">
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    
+
+  <!-- Hero Section with 3D Shape -->
+  <div class="hero">
     <div class="hero-content">
       <h1>Shruti Ashok</h1>
-      <p>Student | B.Tech in Computing & Data Science</p>
+      <p>Portfolio</p>
     </div>
-    
     <div class="shape-container">
-      <div class="shape-3d" id="shape3d">
+      <div class="shape-3d">
         <div class="face about" data-section="about">
           <div class="face-title">About</div>
-          <div class="face-content">
-            B.Tech Computing & Data Science at Sai University. Passionate about technology, design, and social impact.
-          </div>
+          <div class="face-content">Learn more about me and my background.</div>
         </div>
         <div class="face skills" data-section="skills">
           <div class="face-title">Skills</div>
-          <div class="face-content">
-            C++, Python, Java, JavaScript, TypeScript, HTML, CSS, MySQL, MongoDB, AWS, GitHub, Cybersecurity
-          </div>
+          <div class="face-content">Discover my technical and soft skills.</div>
         </div>
         <div class="face experience" data-section="experience">
           <div class="face-title">Experience</div>
-          <div class="face-content">
-            Interned at LTI Mindtree and Acxhange India. Led social media strategy for Rethinking Refugees.
-          </div>
+          <div class="face-content">Explore my professional journey.</div>
         </div>
         <div class="face projects" data-section="projects">
           <div class="face-title">Projects</div>
-          <div class="face-content">
-            C++ To-Do app, Portfolio website, e-Yantra competitions, path-planning and robotic control systems
-          </div>
+          <div class="face-content">See my portfolio of work.</div>
         </div>
         <div class="face education" data-section="education">
           <div class="face-title">Education</div>
-          <div class="face-content">
-            BVM Global Chennai • B.Tech at Sai University (2022–2026) • Research initiatives focus
-          </div>
+          <div class="face-content">View my academic background.</div>
         </div>
         <div class="face certificates" data-section="certificates">
           <div class="face-title">Certificates</div>
-          <div class="face-content">
-            Cloud Computing (NPTEL IIT), Blockchain Applications (2025), Google Cybersecurity Professional, JLPT
-          </div>
+          <div class="face-content">Check out my certifications.</div>
         </div>
         <div class="face contact" data-section="contact">
           <div class="face-title">Contact</div>
-          <div class="face-content">
-            shrutiashok445@gmail.com • +91 7550074988 • GitHub: shrutiashok7 • LinkedIn: shruti-ashok-641326310
-          </div>
+          <div class="face-content">Get in touch with me.</div>
         </div>
       </div>
-      
       <div class="rotation-controls">
-        <button class="rotate-btn" id="rotateLeft">←</button>
-        <button class="rotate-btn" id="rotateRight">→</button>
+        <button class="rotate-btn" data-direction="left">←</button>
+        <button class="rotate-btn" data-direction="right">→</button>
       </div>
     </div>
-  </main>
+  </div>
+
+  <!-- Detailed Sections (hidden by default) -->
+  <div class="detailed-section about-section" id="about-detailed">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">Learn more about me and my background.</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-card">
+          <h3 class="card-title">Who I Am</h3>
+          <p class="card-content">A passionate developer and designer with a love for creative solutions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detailed-section skills-section" id="skills-detailed">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Discover my technical and soft skills.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <h3>Frontend</h3>
+          <p>HTML, CSS, JavaScript</p>
+        </div>
+        <div class="skill-item">
+          <h3>Backend</h3>
+          <p>Node.js, Python</p>
+        </div>
+        <div class="skill-item">
+          <h3>Design</h3>
+          <p>UI/UX, Figma</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detailed-section experience-section" id="experience-detailed">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Explore my professional journey.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2022 - Present</div>
+          <h3 class="timeline-title">Web Developer</h3>
+          <p class="timeline-company">Creative Solutions Inc.</p>
+          <p class="timeline-description">Developed responsive websites and web applications.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detailed-section projects-section" id="projects-detailed">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">See my portfolio of work.</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-card">
+          <h3 class="card-title">Portfolio Website</h3>
+          <p class="card-content">A responsive and interactive portfolio showcasing my work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detailed-section education-section" id="education-detailed">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">View my academic background.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2018 - 2022</div>
+          <h3 class="timeline-title">Bachelor's in Computer Science</h3>
+          <p class="timeline-company">University of Technology</p>
+          <p class="timeline-description">Specialized in software development and design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detailed-section certificates-section" id="certificates-detailed">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Certificates</h2>
+        <p class="section-subtitle">Check out my certifications.</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-card">
+          <h3 class="card-title">Frontend Development</h3>
+          <p class="card-content">Certified in HTML, CSS, and JavaScript.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="detailed-section contact-section" id="contact-detailed">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Get in touch with me.</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-card">
+          <h3 class="card-title">Email</h3>
+          <p class="card-content">hello@shrutiashok.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // Cursor movement
+    // Custom Cursor
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
-    
     document.addEventListener('mousemove', (e) => {
-      // Immediate cursor movement with no transition for smooth response
-      cursor.style.left = `${e.clientX - 4}px`;
-      cursor.style.top = `${e.clientY - 12}px`;
-      
-      // Smooth follower movement
-      cursorFollower.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      cursorFollower.style.left = e.clientX - 6 + 'px';
+      cursorFollower.style.top = e.clientY - 6 + 'px';
     });
-    
-    // Dark mode toggle
+
+    // Mode Toggle
     const modeToggle = document.getElementById('mode-toggle');
-    const modeText = document.querySelector('.mode-text');
-    
-    modeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      modeText.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
-    });
-    
-    // 3D Shape rotation and mouse interaction
-    const shape3d = document.getElementById('shape3d');
-    const rotateLeftBtn = document.getElementById('rotateLeft');
-    const rotateRightBtn = document.getElementById('rotateRight');
-    
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
-    let baseRotationY = 0; // Base rotation controlled by buttons
-    let currentRotationY = 0;
-    let currentRotationX = 0;
-    
-    // Button rotation controls
-    rotateLeftBtn.addEventListener('click', () => {
-      baseRotationY -= 51.42; // Rotate by one face (360/7 degrees)
-    });
-    
-    rotateRightBtn.addEventListener('click', () => {
-      baseRotationY += 51.42; // Rotate by one face (360/7 degrees)
-    });
-    
-    // Mouse parallax (reduced influence)
-    document.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX / window.innerWidth) - 0.5;
-      mouseY = (e.clientY / window.innerHeight) - 0.5;
-      
-      targetX = -mouseY * 15; // Reduced mouse influence
-      targetY = mouseX * 15;
-    });
-    
-    // Smooth animation loop for 3D shape
-    function animate() {
-      // Smooth transition to target rotations
-      currentRotationX += (targetX - currentRotationX) * 0.05;
-      currentRotationY += ((baseRotationY + targetY) - currentRotationY) * 0.05;
-      
-      shape3d.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
-      
-      requestAnimationFrame(animate);
+    const body = document.body;
+    let isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+      body.classList.add('dark');
+      modeToggle.textContent = 'Light Mode';
     }
-    animate();
-    
-    // Face click interactions
-    document.querySelectorAll('.face').forEach(face => {
-      face.addEventListener('click', () => {
-        const section = face.dataset.section;
-        console.log(`Navigate to ${section} section`);
-        // Add your navigation logic here
-      });
-      
-      face.addEventListener('mouseenter', () => {
-        cursor.style.borderBottomColor = '#bb86fc';
-        cursor.style.transform += ' scale(1.3)';
-        cursorFollower.style.background = 'rgba(187, 134, 252, 0.5)';
-      });
-      
-      face.addEventListener('mouseleave', () => {
-        cursor.style.borderBottomColor = '#c8a2c8';
-        cursor.style.transform = cursor.style.transform.replace(' scale(1.3)', '');
-        cursorFollower.style.background = 'rgba(200, 162, 200, 0.3)';
+
+    modeToggle.addEventListener('click', () => {
+      isDarkMode = !isDarkMode;
+      body.classList.toggle('dark');
+      localStorage.setItem('darkMode', isDarkMode);
+      modeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+    });
+
+    // Rotation Controls
+    const rotateBtns = document.querySelectorAll('.rotate-btn');
+    const shape3d = document.querySelector('.shape-3d');
+    let rotation = 0;
+
+    rotateBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const direction = btn.getAttribute('data-direction');
+        if (direction === 'left') rotation -= 51.42;
+        else rotation += 51.42;
+        shape3d.style.transform = `rotateY(${rotation}deg)`;
       });
     });
-    
-    // Floating elements parallax
-    document.querySelectorAll('.floating-element').forEach((element, index) => {
-      document.addEventListener('mousemove', (e) => {
-        const speed = (index + 1) * 0.02;
-        const x = (e.clientX * speed);
-        const y = (e.clientY * speed);
-        element.style.transform += ` translate(${x}px, ${y}px)`;
+
+    // Face Click to Open Section
+    const faces = document.querySelectorAll('.face');
+    const detailedSections = document.querySelectorAll('.detailed-section');
+    const backBtn = document.querySelector('.back-btn');
+
+    faces.forEach(face => {
+      face.addEventListener('click', () => {
+        const section = face.getAttribute('data-section');
+        detailedSections.forEach(s => s.classList.remove('active'));
+        document.getElementById(`${section}-detailed`).classList.add('active');
+        backBtn.classList.add('show');
       });
+    });
+
+    // Back Button
+    backBtn.addEventListener('click', () => {
+      detailedSections.forEach(s => s.classList.remove('active'));
+      backBtn.classList.remove('show');
     });
   </script>
 </body>
