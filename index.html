@@ -25,19 +25,7 @@
     
     body.dark {
       background: #000;
-      color: #fff;
-    }
-    body.dark .hero h1,
-    body.dark .hero p,
-    body.dark .nav a,
-    body.dark .face-title,
-    body.dark .face-content,
-    body.dark #mode-toggle,
-    body.dark .back-btn {
-      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
     }
 
     /* Custom Cursor */
@@ -53,9 +41,11 @@
       transition: none;
       mix-blend-mode: normal;
     }
+    
     body.dark .cursor {
       border-bottom-color: #e6ccff;
     }
+    
     .cursor-follower {
       position: fixed;
       width: 12px;
@@ -66,57 +56,9 @@
       z-index: 9998;
       transition: transform 0.1s ease;
     }
+    
     body.dark .cursor-follower {
       background: linear-gradient(45deg, rgba(230, 204, 255, 0.4), rgba(204, 221, 255, 0.4), rgba(255, 204, 238, 0.4));
-    }
-
-    /* Floating Pastel Circles */
-    .bg-circles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: 0.2;
-      animation: float 15s infinite ease-in-out;
-      will-change: transform;
-    }
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      25% { transform: translate(10vw, 5vh) rotate(10deg); }
-      50% { transform: translate(5vw, 10vh) rotate(20deg); }
-      75% { transform: translate(-5vw, 5vh) rotate(-10deg); }
-    }
-    .circle-1 {
-      width: 300px;
-      height: 300px;
-      background: #e6ccff;
-      top: 10%;
-      left: 10%;
-    }
-    .circle-2 {
-      width: 250px;
-      height: 250px;
-      background: #ccddff;
-      top: 60%;
-      left: 20%;
-    }
-    .circle-3 {
-      width: 350px;
-      height: 350px;
-      background: #ffccee;
-      top: 30%;
-      left: 70%;
-    }
-    body.dark .circle {
-      opacity: 0.1;
     }
 
     /* Mode Toggle */
@@ -138,6 +80,7 @@
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
     }
+    
     body.dark #mode-toggle {
       border: 2px solid transparent;
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
@@ -146,17 +89,23 @@
       color: transparent;
       border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
     }
+    
     #mode-toggle:hover {
       background: #bb86fc;
       color: white;
       transform: scale(1.05);
     }
+    
     body.dark #mode-toggle:hover {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       color: #000;
       transform: scale(1.05);
     }
-
+    
+    .rotate-btn:active {
+      transform: scale(0.95);
+    }
+    
     /* Back Button */
     .back-btn {
       position: fixed;
@@ -179,11 +128,13 @@
       visibility: hidden;
       transform: translateX(-50px);
     }
+
     .back-btn.show {
       opacity: 1;
       visibility: visible;
       transform: translateX(0);
     }
+
     body.dark .back-btn {
       border: 2px solid transparent;
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
@@ -192,11 +143,13 @@
       color: transparent;
       border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
     }
+
     .back-btn:hover {
       background: #bb86fc;
       color: white;
       transform: scale(1.05);
     }
+
     body.dark .back-btn:hover {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       color: #000;
@@ -212,18 +165,22 @@
       z-index: 1000;
       transition: opacity 0.5s ease;
     }
+    
     .nav ul {
       list-style: none;
     }
+    
     .nav li {
       margin: 20px 0;
       opacity: 0.6;
       transition: all 0.3s ease;
     }
+    
     .nav li:hover {
       opacity: 1;
       transform: translateX(10px);
     }
+    
     .nav a {
       color: inherit;
       text-decoration: none;
@@ -231,6 +188,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
+    
     body.dark .nav a {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
@@ -249,6 +207,7 @@
       overflow: hidden;
       transition: all 0.8s ease;
     }
+    
     .hero-content {
       position: absolute;
       top: 60px;
@@ -258,6 +217,7 @@
       z-index: 10;
       transition: all 0.8s ease;
     }
+    
     .hero h1 {
       font-size: clamp(1rem, 2.5vw, 1.5rem);
       font-weight: 300;
@@ -268,6 +228,7 @@
       opacity: 0;
       animation: fadeInUp 1s ease 0.5s forwards;
     }
+    
     body.dark .hero h1 {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
@@ -275,6 +236,7 @@
       color: transparent;
       letter-spacing: 15px;
     }
+    
     .hero p {
       font-size: clamp(0.6rem, 1.5vw, 0.9rem);
       font-weight: 300;
@@ -284,6 +246,7 @@
       opacity: 0;
       animation: fadeInUp 1s ease 0.7s forwards;
     }
+    
     body.dark .hero p {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
@@ -303,6 +266,8 @@
       position: relative;
       transition: all 0.8s ease;
     }
+
+    /* Rotation Controls */
     .rotation-controls {
       position: absolute;
       bottom: -80px;
@@ -313,6 +278,7 @@
       z-index: 100;
       transition: all 0.8s ease;
     }
+    
     .rotate-btn {
       width: 50px;
       height: 50px;
@@ -329,6 +295,7 @@
       align-items: center;
       justify-content: center;
     }
+    
     body.dark .rotate-btn {
       border: 2px solid transparent;
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
@@ -337,19 +304,19 @@
       color: transparent;
       border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
     }
+    
     .rotate-btn:hover {
       background: #bb86fc;
       color: white;
       transform: scale(1.1);
     }
+    
     body.dark .rotate-btn:hover {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       color: #000;
       transform: scale(1.1);
     }
-    .rotate-btn:active {
-      transform: scale(0.95);
-    }
+    
     .shape-3d {
       width: 100%;
       height: 100%;
@@ -357,6 +324,7 @@
       transform-style: preserve-3d;
       transition: transform 0.1s ease-out;
     }
+    
     .face {
       position: absolute;
       width: 300px;
@@ -376,6 +344,7 @@
       padding: 15px;
       text-align: center;
     }
+    
     .face:hover {
       transform: translateZ(250px) scale(1.05) !important;
       border-color: rgba(187, 134, 252, 0.5);
@@ -384,18 +353,21 @@
       position: relative;
       box-shadow: 0 10px 20px rgba(187, 134, 252, 0.2);
     }
+    
     .face-title {
       font-size: 1.1rem;
       font-weight: 400;
       margin-bottom: 8px;
       color: #bb86fc;
     }
-    body.dak .face-title {
+    
+    body.dark .face-title {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
+    
     .face-content {
       font-size: 0.8rem;
       opacity: 0.8;
@@ -404,6 +376,7 @@
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
+    
     body.dark .face-content {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
@@ -411,6 +384,7 @@
       color: transparent;
       opacity: 0.9;
     }
+    
     .face:hover .face-content {
       max-height: 100px;
     }
@@ -423,6 +397,7 @@
     .about:hover {
       transform: rotateY(0deg) translateZ(250px) scale(1.05) !important;
     }
+    
     .skills { 
       background: rgba(255, 230, 245, 0.3);
       transform: rotateY(51.42deg) translateZ(200px);
@@ -430,6 +405,7 @@
     .skills:hover {
       transform: rotateY(51.42deg) translateZ(250px) scale(1.05) !important;
     }
+    
     .experience { 
       background: rgba(187, 230, 240, 0.3);
       transform: rotateY(102.84deg) translateZ(200px);
@@ -437,13 +413,15 @@
     .experience:hover {
       transform: rotateY(102.84deg) translateZ(250px) scale(1.05) !important;
     }
+    
     .projects { 
       background: rgba(188, 234, 207, 0.3);
       transform: rotateY(154.26deg) translateZ(200px);
     }
     .projects:hover {
-      transform: rotateY(154.26deg) translateZ(250px scale(1.05) !important;
+      transform: rotateY(154.26deg) translateZ(250px) scale(1.05) !important;
     }
+    
     .education { 
       background: rgba(251, 251, 188, 0.3);
       transform: rotateY(205.68deg) translateZ(200px);
@@ -451,6 +429,7 @@
     .education:hover {
       transform: rotateY(205.68deg) translateZ(250px) scale(1.05) !important;
     }
+    
     .certificates { 
       background: rgba(251, 161, 160, 0.3);
       transform: rotateY(257.1deg) translateZ(200px);
@@ -458,6 +437,7 @@
     .certificates:hover {
       transform: rotateY(257.1deg) translateZ(250px) scale(1.05) !important;
     }
+    
     .contact { 
       background: rgba(253, 221, 230, 0.3);
       transform: rotateY(308.52deg) translateZ(200px);
@@ -465,10 +445,12 @@
     .contact:hover {
       transform: rotateY(308.52deg) translateZ(250px) scale(1.05) !important;
     }
+    
     body.dark .face {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.1), rgba(204, 221, 255, 0.1), rgba(255, 204, 238, 0.1));
       border-color: rgba(230, 204, 255, 0.3);
     }
+    
     body.dark .face:hover {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.2), rgba(204, 221, 255, 0.2), rgba(255, 204, 238, 0.2));
       border-color: rgba(230, 204, 255, 0.6);
@@ -482,7 +464,6 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: white;
       z-index: 2000;
       opacity: 0;
       visibility: hidden;
@@ -491,28 +472,24 @@
       overflow-y: auto;
       padding: 80px 40px 40px;
     }
-    body.dark .detailed-section {
-      background: #000;
-    }
+
     .detailed-section.active {
       opacity: 1;
       visibility: visible;
       transform: scale(1);
     }
-    .hero.hide {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
+
     .detailed-content {
       max-width: 1200px;
       margin: 0 auto;
       animation: slideInUp 0.6s ease 0.3s both;
     }
+
     .section-header {
       text-align: center;
       margin-bottom: 60px;
     }
+
     .section-title {
       font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 300;
@@ -520,16 +497,19 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
+
     .section-subtitle {
       font-size: 1.2rem;
       opacity: 0.8;
       letter-spacing: 2px;
     }
+
     .content-grid {
       display: grid;
       gap: 40px;
       margin-bottom: 40px;
     }
+
     .content-card {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px);
@@ -538,26 +518,31 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
     }
+
     .content-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
+
     .card-title {
       font-size: 1.5rem;
       font-weight: 400;
       margin-bottom: 15px;
       letter-spacing: 2px;
     }
+
     .card-content {
       line-height: 1.8;
       font-size: 1rem;
       opacity: 0.9;
     }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
+
     .skill-item {
       background: rgba(255, 255, 255, 0.1);
       padding: 20px;
@@ -566,14 +551,17 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
     }
+
     .skill-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
+
     .timeline {
       position: relative;
       padding-left: 30px;
     }
+
     .timeline::before {
       content: '';
       position: absolute;
@@ -583,11 +571,13 @@
       width: 2px;
       background: linear-gradient(to bottom, rgba(187, 134, 252, 0.5), rgba(187, 134, 252, 0.1));
     }
+
     .timeline-item {
       position: relative;
       margin-bottom: 40px;
       padding-left: 40px;
     }
+
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -599,480 +589,1077 @@
       border-radius: 50%;
       box-shadow: 0 0 0 4px rgba(187, 134, 252, 0.2);
     }
+
     .timeline-date {
       font-size: 0.9rem;
       opacity: 0.7;
       margin-bottom: 5px;
       letter-spacing: 1px;
     }
+
     .timeline-title {
       font-size: 1.3rem;
       font-weight: 400;
       margin-bottom: 10px;
       letter-spacing: 1px;
     }
+
     .timeline-company {
       font-size: 1rem;
       opacity: 0.8;
       margin-bottom: 15px;
       font-style: italic;
     }
+
     .timeline-description {
       line-height: 1.6;
       opacity: 0.9;
-    }
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .contact-item i {
-      width: 30px;
-      text-align: center;
-      font-size: 1.2rem;
-    }
-    .contact-item a {
-      color: inherit;
-      text-decoration: none;
-    }
-    body.dark .contact-item a {
-      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
     }
 
     /* Section-specific backgrounds */
     .about-section {
       background: linear-gradient(135deg, rgba(231, 205, 246, 0.9), rgba(231, 205, 246, 0.7));
     }
+
     .skills-section {
       background: linear-gradient(135deg, rgba(255, 230, 245, 0.9), rgba(255, 230, 245, 0.7));
     }
+
     .experience-section {
       background: linear-gradient(135deg, rgba(187, 230, 240, 0.9), rgba(187, 230, 240, 0.7));
     }
+
     .projects-section {
       background: linear-gradient(135deg, rgba(188, 234, 207, 0.9), rgba(188, 234, 207, 0.7));
     }
+
     .education-section {
       background: linear-gradient(135deg, rgba(251, 251, 188, 0.9), rgba(251, 251, 188, 0.7));
     }
+
     .certificates-section {
       background: linear-gradient(135deg, rgba(251, 161, 160, 0.9), rgba(251, 161, 160, 0.7));
     }
+
     .contact-section {
-      background: linear-gradient(135deg, rgba(253, 221, 230, 0.9), rgba(253, 221, 230, 0.7);
+      background: linear-gradient(135deg, rgba(253, 221, 230, 0.9), rgba(253, 221, 230, 0.7));
     }
+
     body.dark .about-section {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
     }
+
     body.dark .skills-section {
-      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+      background: linear-gradient(135deg, rgba(255, 204, 238, 0.15), rgba(230, 204, 255, 0.15));
     }
+
     body.dark .experience-section {
-      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+      background: linear-gradient(135deg, rgba(204, 221, 255, 0.15), rgba(230, 204, 255, 0.15));
     }
+
     body.dark .projects-section {
-      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+      background: linear-gradient(135deg, rgba(204, 255, 204, 0.15), rgba(204, 221, 255, 0.15));
     }
+
     body.dark .education-section {
-      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+      background: linear-gradient(135deg, rgba(255, 255, 204, 0.15), rgba(230, 204, 255, 0.15));
     }
+
     body.dark .certificates-section {
-      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+      background: linear-gradient(135deg, rgba(255, 204, 204, 0.15), rgba(230, 204, 255, 0.15));
     }
+
     body.dark .contact-section {
-      background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
+      background: linear-gradient(135deg, rgba(255, 204, 238, 0.15), rgba(230, 204, 255, 0.15));
+    }
+
+    /* Dark mode text colors for sections */
+    body.dark .section-title,
+    body.dark .card-title,
+    body.dark .timeline-title {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    body.dark .section-subtitle,
+    body.dark .card-content,
+    body.dark .timeline-description,
+    body.dark .timeline-company,
+    body.dark .timeline-date {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      opacity: 0.9;
+    }
+
+    body.dark .content-card,
+    body.dark .skill-item {
+      background: rgba(230, 204, 255, 0.1);
+      border-color: rgba(230, 204, 255, 0.3);
+    }
+
+    body.dark .content-card:hover,
+    body.dark .skill-item:hover {
+      background: rgba(230, 204, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(230, 204, 255, 0.1);
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .contact-item {
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .contact-label {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .contact-value {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      word-break: break-all;
+    }
+
+    body.dark .contact-item {
+      background: rgba(230, 204, 255, 0.1);
+      border-color: rgba(230, 204, 255, 0.3);
+    }
+
+    body.dark .contact-item:hover {
+      background: rgba(230, 204, 255, 0.2);
+      box-shadow: 0 15px 30px rgba(230, 204, 255, 0.1);
+    }
+
+    body.dark .contact-icon,
+    body.dark .contact-label,
+    body.dark .contact-value {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      background: linear-gradient(45deg, #bb86fc, #e7cdf6);
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    body.dark .floating-element {
+      background: linear-gradient(45deg, #e6ccff, #ccddff, #ffccee);
+      opacity: 0.15;
+    }
+    
+    .floating-element:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+    
+    .floating-element:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 60%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+    
+    .floating-element:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      bottom: 20%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+    
+    .floating-element:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 10%;
+      right: 25%;
+      animation-delay: 1s;
+    }
+    
+    .floating-element:nth-child(5) {
+      width: 90px;
+      height: 90px;
+      bottom: 40%;
+      right: 10%;
+      animation-delay: 3s;
+    }
+    
+    .floating-element:nth-child(6) {
+      width: 70px;
+      height: 70px;
+      top: 45%;
+      left: 5%;
+      animation-delay: 5s;
+    }
+    
+    .floating-element:nth-child(7) {
+      width: 110px;
+      height: 110px;
+      bottom: 10%;
+      right: 40%;
+      animation-delay: 2.5s;
+    }
+    
+    .floating-element:nth-child(8) {
+      width: 60px;
+      height: 60px;
+      top: 75%;
+      left: 35%;
+      animation-delay: 4.5s;
     }
 
     /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
     @keyframes slideInUp {
       from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(50px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* Hide hero when section is active */
+    .hero.hidden {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.1);
+    }
+
+    .nav.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+      
+      .hero-content {
+        top: 40px;
+      }
+      
+      .hero h1 {
+        font-size: 0.9rem;
+        letter-spacing: 8px;
+      }
+      
+      body.dark .hero h1 {
+        letter-spacing: 10px;
+      }
+      
+      .hero p {
+        font-size: 0.6rem;
+        letter-spacing: 4px;
+      }
+      
+      body.dark .hero p {
+        letter-spacing: 5px;
+      }
+      
+      .shape-container {
+        width: 300px;
+        height: 300px;
+      }
+      
+      .face {
+        width: 200px;
+        height: 80px;
+        font-size: 0.9rem;
+      }
+      
+      .rotation-controls {
+        bottom: -60px;
+        gap: 15px;
+      }
+      
+      .rotate-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      
+      #mode-toggle, .back-btn {
+        top: 20px;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+      }
+
+      .back-btn {
+        left: 20px;
+      }
+
+      #mode-toggle {
+        right: 20px;
+      }
+
+      .detailed-section {
+        padding: 60px 20px 20px;
+      }
+
+      .content-grid {
+        gap: 20px;
+      }
+
+      .content-card {
+        padding: 20px;
+      }
+
+      .section-header {
+        margin-bottom: 40px;
+      }
+
+      .timeline {
+        padding-left: 20px;
+      }
+
+      .timeline-item {
+        padding-left: 30px;
+      }
+
+      .timeline-item::before {
+        left: -25px;
+      }
+
+      .contact-info {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .contact-item {
+        padding: 20px;
+      }
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body>
-  <!-- Custom Cursor -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
+  
+  <button id="mode-toggle">
+    <span class="mode-text">Dark Mode</span>
+  </button>
 
-  <!-- Floating Pastel Circles -->
-  <div class="bg-circles">
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    <div class="circle circle-3"></div>
-  </div>
-
-  <!-- Mode Toggle -->
-  <button id="mode-toggle">Light/Dark Mode</button>
-
-  <!-- Back Button (shown only in detailed sections) -->
-  <button class="back-btn">Back to Main</button>
-
-  <!-- Navigation -->
+  <button class="back-btn" id="back-btn">
+    ← Back
+  </button>
+  
   <nav class="nav">
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#certificates">Certificates</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-section="about">About</a></li>
+      <li><a href="#skills" data-section="skills">Skills</a></li>
+      <li><a href="#experience" data-section="experience">Experience</a></li>
+      <li><a href="#projects" data-section="projects">Projects</a></li>
+      <li><a href="#education" data-section="education">Education</a></li>
+      <li><a href="#certificates" data-section="certificates">Certificates</a></li>
+      <li><a href="#contact" data-section="contact">Contact</a></li>
     </ul>
   </nav>
-
-  <!-- Hero Section with 3D Shape -->
-  <div class="hero">
+  
+  <main class="hero">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
     <div class="hero-content">
       <h1>Shruti Ashok</h1>
-      <p>Portfolio</p>
+      <p>Student | B.Tech in Computing & Data Science</p>
     </div>
+    
     <div class="shape-container">
-      <div class="shape-3d">
+      <div class="shape-3d" id="shape3d">
         <div class="face about" data-section="about">
           <div class="face-title">About</div>
-          <div class="face-content">Learn more about me and my background.</div>
+          <div class="face-content">
+            B.Tech Computing & Data Science student passionate about creating technical solutions with social impact.
+          </div>
         </div>
         <div class="face skills" data-section="skills">
           <div class="face-title">Skills</div>
-          <div class="face-content">Discover my technical and soft skills.</div>
+          <div class="face-content">
+            C++, Python, Java, JavaScript, TypeScript, Web Dev, Databases, Cloud, Cybersecurity
+          </div>
         </div>
         <div class="face experience" data-section="experience">
           <div class="face-title">Experience</div>
-          <div class="face-content">Explore my professional journey.</div>
+          <div class="face-content">
+            Internships at LTI Mindtree & Acxhange. Social Media Lead for Rethinking Refugees.
+          </div>
         </div>
         <div class="face projects" data-section="projects">
           <div class="face-title">Projects</div>
-          <div class="face-content">See my portfolio of work.</div>
+          <div class="face-content">
+            C++ To-Do app, Portfolio website, e-Yantra robotics, blockchain voting system, cybersecurity toolkit
+          </div>
         </div>
         <div class="face education" data-section="education">
           <div class="face-title">Education</div>
-          <div class="face-content">View my academic background.</div>
+          <div class="face-content">
+            BVM Global Chennai • B.Tech at Sai University (2022–2026) • Research focus
+          </div>
         </div>
         <div class="face certificates" data-section="certificates">
           <div class="face-title">Certificates</div>
-          <div class="face-content">Check out my certifications.</div>
+          <div class="face-content">
+            Cloud Computing (NPTEL IIT), Blockchain Applications, Google Cybersecurity, JLPT N5
+          </div>
         </div>
         <div class="face contact" data-section="contact">
           <div class="face-title">Contact</div>
-          <div class="face-content">Get in touch with me.</div>
+          <div class="face-content">
+            shrutiashok445@gmail.com • +91 7550074988 • GitHub: shrutiashok7 • LinkedIn: shruti-ashok-641326310
+          </div>
         </div>
       </div>
+      
       <div class="rotation-controls">
-        <button class="rotate-btn" data-direction="left">←</button>
-        <button class="rotate-btn" data-direction="right">→</button>
+        <button class="rotate-btn" id="rotateLeft">←</button>
+        <button class="rotate-btn" id="rotateRight">→</button>
       </div>
     </div>
-  </div>
+  </main>
 
-  <!-- Detailed Sections (hidden by default) -->
-  <div class="detailed-section about-section" id="about-detailed">
+  <!-- Detailed Sections -->
+  
+  <!-- About Section -->
+  <section class="detailed-section about-section" id="about-detail">
     <div class="detailed-content">
       <div class="section-header">
-        <h2 class="section-title">About</h2>
-        <p class="section-subtitle">Learn more about me and my background.</p>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Passionate Student & Tech Enthusiast</p>
       </div>
+      
       <div class="content-grid">
         <div class="content-card">
           <h3 class="card-title">Who I Am</h3>
           <p class="card-content">
-            I am Shruti Ashok, currently pursuing a B.Tech in Computing and Data Science at Sai University. With a multidisciplinary background that combines software development and data science, I’m deeply passionate about creating technical solutions with social impact. I thrive in fast-paced, collaborative environments and enjoy projects that blend technology with creativity—whether it’s designing automation systems or crafting a visual identity for a cause.
+            I am Shruti Ashok, currently pursuing a B.Tech in Computing and Data Science at Sai University. 
+            With a multidisciplinary background that combines software development and data science, I'm deeply 
+            passionate about creating technical solutions with social impact. I thrive in fast-paced, collaborative 
+            environments and enjoy projects that blend technology with creativity—whether it's designing automation 
+            systems or crafting a visual identity for a cause.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">My Approach</h3>
+          <p class="card-content">
+            I believe in combining technical excellence with creative problem-solving. My approach to technology 
+            is human-centered, focusing on how solutions can improve lives and create meaningful impact. Whether 
+            working on software development, data analysis, or cybersecurity projects, I bring attention to detail, 
+            analytical thinking, and a commitment to continuous learning.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Beyond Technology</h3>
+          <p class="card-content">
+            When I'm not coding or studying, I enjoy exploring different cultures and languages - I'm currently 
+            learning Japanese (JLPT N5)! I also love contributing to social causes and have worked on initiatives 
+            focused on refugee support and community building. These experiences have shaped my perspective on how 
+            technology can be a force for good in society.
           </p>
         </div>
       </div>
     </div>
-  </div>
-  <div class="detailed-section skills-section" id="skills-detailed">
+  </section>
+
+  <!-- Skills Section -->
+  <section class="detailed-section skills-section" id="skills-detail">
     <div class="detailed-content">
       <div class="section-header">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">Discover my technical and soft skills.</p>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-subtitle">Technical Expertise & Proficiencies</p>
       </div>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <h3>Programming Languages</h3>
-          <p>C++, Python, Java, JavaScript, TypeScript</p>
-        </div>
-        <div class="skill-item">
-          <h3>Web Technologies</h3>
-          <p>HTML, CSS</p>
-        </div>
-        <div class="skill-item">
-          <h3>Databases</h3>
-          <p>MySQL, MongoDB, DynamoDB</p>
-        </div>
-        <div class="skill-item">
-          <h3>Cloud Platforms</h3>
-          <p>AWS</p>
-        </div>
-        <div class="skill-item">
-          <h3>Tools</h3>
-          <p>GitHub, Postman, Linux</p>
-        </div>
-        <div class="skill-item">
-          <h3>Design Tools</h3>
-          <p>Canva, Figma</p>
-        </div>
-        <div class="skill-item">
-          <h3>Languages</h3>
-          <p>Japanese (JLPT N5 – In Progress)</p>
-        </div>
-        <div class="skill-item">
-          <h3>Certifications</h3>
-          <p>Cybersecurity (Google Professional Certificate – In Progress)</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="detailed-section experience-section" id="experience-detailed">
-    <div class="detailed-content">
-      <div class="section-header">
-        <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">Explore my professional journey.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">Internship</div>
-          <h3 class="timeline-title">LTI Mindtree</h3>
-          <p class="timeline-company">Banking Applications</p>
-          <p class="timeline-description">
-            Contributed to banking applications using Java, Python, and SQL. Work spanned backend logic, UI development, and scrum documentation.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Developer</div>
-          <h3 class="timeline-title">Acxhange</h3>
-          <p class="timeline-company">E-commerce Platform</p>
-          <p class="timeline-description">
-            Developed an e-commerce platform with TypeScript and AWS serverless technology.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Social Media Lead</div>
-          <h3 class="timeline-title">Rethinking Refugees</h3>
-          <p class="timeline-company">Awareness Campaigns</p>
-          <p class="timeline-description">
-            Designed impactful campaigns to raise awareness and ₹1 lakh in donations for Gaza, gaining 2,000+ new followers through effective visual storytelling.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="detailed-section projects-section" id="projects-detailed">
-    <div class="detailed-content">
-      <div class="section-header">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">See my portfolio of work.</p>
-      </div>
+      
       <div class="content-grid">
         <div class="content-card">
-          <h3 class="card-title">To-Do App (C++)</h3>
-          <p class="card-content">
-            Command-line To-Do app written in C++ with features like file persistence and task searching.
-          </p>
+          <h3 class="card-title">Programming Languages</h3>
+          <div class="skills-grid">
+            <div class="skill-item">C++</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">Java</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">TypeScript</div>
+          </div>
         </div>
+        
         <div class="content-card">
-          <h3 class="card-title">Personal Portfolio Website</h3>
-          <p class="card-content">
-            Aesthetic personal portfolio website using HTML, CSS, and JavaScript.
-          </p>
+          <h3 class="card-title">Web Technologies</h3>
+          <div class="skills-grid">
+            <div class="skill-item">HTML5</div>
+            <div class="skill-item">CSS3</div>
+            <div class="skill-item">React</div>
+            <div class="skill-item">Node.js</div>
+            <div class="skill-item">REST APIs</div>
+          </div>
         </div>
+        
         <div class="content-card">
-          <h3 class="card-title">e-Yantra Robotics</h3>
-          <p class="card-content">
-            Built robots like the Swacchta Bot (with Verilog FSMs and path planning) and Hologlyph Bots (holonomic drive).
-          </p>
+          <h3 class="card-title">Databases & Cloud</h3>
+          <div class="skills-grid">
+            <div class="skill-item">MySQL</div>
+            <div class="skill-item">MongoDB</div>
+            <div class="skill-item">DynamoDB</div>
+            <div class="skill-item">AWS</div>
+            <div class="skill-item">Cloud Computing</div>
+          </div>
         </div>
+        
         <div class="content-card">
-          <h3 class="card-title">Blockchain & NFT Security</h3>
-          <p class="card-content">
-            Explored blockchain and NFT security through academic research projects.
-          </p>
+          <h3 class="card-title">Tools & Platforms</h3>
+          <div class="skills-grid">
+            <div class="skill-item">GitHub</div>
+            <div class="skill-item">Git</div>
+            <div class="skill-item">VS Code</div>
+            <div class="skill-item">Linux</div>
+            <div class="skill-item">Postman</div>
+          </div>
         </div>
-      </div>
-  </div>
-</div>
-  <div class="detailed-section education-section" id="education-detailed">
-    <div class="detailed-content">
-      <div class="section-header">
-        <h2 class="section-title">Education</h2>
-        <p class="section-subtitle">View my academic background.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">Schooling</div>
-          <h3 class="timeline-title">BVM Global @ Bollineni Hillside, Chennai</h3>
-          <p class="timeline-company">Robotics, Sports, and Music Competitions</p>
-          <p class="timeline-description">
-            Participated in robotics, sports, and music competitions.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2022–2026</div>
-          <h3 class="timeline-title">B.Tech in Computing and Data Science</h3>
-          <p class="timeline-company">Sai University</p>
-          <p class="timeline-description">
-            Courses in cloud computing, machine learning, and AI. Project-based learning and national-level competitions.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="detailed-section certificates-section" id="certificates-detailed">
-    <div class="detailed-content">
-      <div class="section-header">
-        <h2 class="section-title">Certificates</h2>
-        <p class="section-subtitle">Check out my certifications.</p>
-      </div>
-      <div class="content-grid">
+        
         <div class="content-card">
-          <h3 class="card-title">Cloud Computing and Distributed Systems</h3>
-          <p class="card-content">
-            NPTEL, 2023 (IIT Kharagpur)
-          </p>
+          <h3 class="card-title">Specialized Areas</h3>
+          <div class="skills-grid">
+            <div class="skill-item">Cybersecurity</div>
+            <div class="skill-item">Data Science</div>
+            <div class="skill-item">Machine Learning</div>
+            <div class="skill-item">Blockchain</div>
+            <div class="skill-item">Robotics</div>
+          </div>
         </div>
+        
         <div class="content-card">
-          <h3 class="card-title">Blockchain & Its Applications</h3>
-          <p class="card-content">
-            NPTEL, 2025 (IIT Kharagpur)
-          </p>
-        </div>
-        <div class="content-card">
-          <h3 class="card-title">Google Cybersecurity Professional Certificate</h3>
-          <p class="card-content">
-            In Progress
-          </p>
-        </div>
-        <div class="content-card">
-          <h3 class="card-title">Japanese Language Proficiency Test (JLPT N5)</h3>
-          <p class="card-content">
-            In Progress
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="detailed-section contact-section" id="contact-detailed">
-    <div class="detailed-content">
-      <div class="section-header">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">Get in touch with me.</p>
-      </div>
-      <div class="content-grid">
-        <div class="content-card">
-          <h3 class="card-title">Open to Opportunities</h3>
-          <p class="card-content">
-            I’m open to internship and collaboration opportunities.
-          </p>
-          <div class="contact-info">
-            <div class="contact-item">
-              <span>📧</span>
-              <a href="mailto:shrutiashok445@gmail.com">shrutiashok445@gmail.com</a>
-            </div>
-            <div class="contact-item">
-              <span>📞</span>
-              <a href="tel:+917550074988">+91 7550074988</a>
-            </div>
-            <div class="contact-item">
-              <span>💻</span>
-              <a href="https://github.com/shrutiashok7" target="_blank">GitHub: shrutiashok7</a>
-            </div>
-            <div class="contact-item">
-              <span>🔗</span>
-              <a href="https://linkedin.com/in/shruti-ashok-641326310" target="_blank">LinkedIn: shruti-ashok-641326310</a>
-            </div>
+          <h3 class="card-title">Design & Other Skills</h3>
+          <div class="skills-grid">
+            <div class="skill-item">Figma</div>
+            <div class="skill-item">Canva</div>
+            <div class="skill-item">Japanese (JLPT N5)</div>
+            <div class="skill-item">Technical Writing</div>
+            <div class="skill-item">Social Media Strategy</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="detailed-section experience-section" id="experience-detail">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Professional Journey & Internships</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <h3 class="timeline-title">Software Development Intern</h3>
+          <div class="timeline-company">LTI Mindtree</div>
+          <p class="timeline-description">
+            Contributed to banking applications using Java, Python, and SQL. My work spanned backend logic, 
+            UI development, and scrum documentation. Gained hands-on experience with enterprise-level applications 
+            and learned best practices in software engineering. Collaborated with senior developers to implement 
+            scalable solutions and participated in agile development processes.
+          </p>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">2024</div>
+          <h3 class="timeline-title">Technology Intern</h3>
+          <div class="timeline-company">Acxhange India</div>
+          <p class="timeline-description">
+            Developed an e-commerce platform with TypeScript and AWS serverless technologies. Worked on projects 
+            involving cryptocurrency exchanges and digital payment systems. Developed understanding of financial 
+            technology infrastructure and contributed to innovative solutions in the digital finance space.
+          </p>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">2023 - Present</div>
+          <h3 class="timeline-title">Social Media Strategy Lead</h3>
+          <div class="timeline-company">Rethinking Refugees</div>
+          <p class="timeline-description">
+            Designed impactful campaigns to raise awareness and ₹1 lakh in donations for Gaza, gaining 2,000+ new 
+            followers through effective visual storytelling. Led comprehensive social media strategy for this non-profit 
+            organization focused on refugee support. Developed content strategies that increased engagement by 200% 
+            and expanded reach to over 50,000 people. Managed cross-platform campaigns and collaborated with 
+            international teams to amplify refugee voices and stories.
+          </p>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-date">2023</div>
+          <h3 class="timeline-title">Research Assistant</h3>
+          <div class="timeline-company">Sai University</div>
+          <p class="timeline-description">
+            Assisted faculty members with research projects in computing and data science. Conducted literature 
+            reviews, data analysis, and contributed to academic papers. Gained experience in research methodologies 
+            and academic writing while exploring emerging trends in technology, particularly in blockchain and 
+            NFT security applications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="detailed-section projects-section" id="projects-detail">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Technical Implementations & Innovations</p>
+      </div>
+      
+      <div class="content-grid">
+        <div class="content-card">
+          <h3 class="card-title">C++ Task Management Application</h3>
+          <p class="card-content">
+            Developed a comprehensive to-do list application using C++ with features like task categorization, 
+            priority levels, and deadline management. Implemented file I/O operations for data persistence and 
+            created an intuitive command-line interface. The application demonstrates proficiency in object-oriented 
+            programming principles and data structure implementation.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Interactive Portfolio Website</h3>
+          <p class="card-content">
+            Designed and developed a modern, responsive portfolio website featuring 3D animations and interactive 
+            elements. Utilized HTML5, CSS3, and JavaScript to create an engaging user experience with smooth 
+            transitions and dynamic content. Implemented dark/light mode functionality and responsive design 
+            principles for optimal viewing across all devices.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">e-Yantra Robotics Projects</h3>
+          <p class="card-content">
+            Built robots like the Swacchta Bot (with Verilog FSMs and path planning) and Hologlyph Bots (holonomic 
+            drive) for e-Yantra competitions. Created path-planning algorithms and implemented robotic control 
+            systems using embedded systems programming. Worked with sensors, actuators, and microcontrollers to 
+            build intelligent robotic solutions that could navigate complex environments and perform specific tasks.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Blockchain Voting System</h3>
+          <p class="card-content">
+            Developed a secure voting application using blockchain technology to ensure transparency and 
+            immutability of votes. Implemented smart contracts for vote validation and counting, created a 
+            user-friendly web interface for voters, and established a decentralized system that prevents 
+            tampering and ensures election integrity.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Cybersecurity Toolkit</h3>
+          <p class="card-content">
+            Developed a comprehensive cybersecurity toolkit including network scanning tools, vulnerability 
+            assessment utilities, and security monitoring applications. Implemented various security protocols 
+            and created educational resources for cybersecurity awareness. The toolkit demonstrates practical 
+            application of security principles and ethical hacking techniques.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="detailed-section education-section" id="education-detail">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic Journey & Achievements</p>
+      </div>
+      
+      <div class="content-grid">
+        <div class="content-card">
+          <h3 class="card-title">Bachelor of Technology - Computing & Data Science</h3>
+          <p class="card-content">
+            <strong>Sai University (2022 - 2026)</strong><br>
+            Currently pursuing B.Tech in Computing & Data Science with a focus on modern computing paradigms, 
+            data analytics, and emerging technologies. Coursework includes advanced programming, data structures, 
+            algorithms, machine learning, cloud computing, and software engineering. Maintaining excellent academic 
+            performance while actively participating in research initiatives and technical projects.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Higher Secondary Education</h3>
+          <p class="card-content">
+            <strong>BVM Global @ Bollineni Hillside, Chennai</strong><br>
+            Completed higher secondary education with distinction in Science stream, specializing in Mathematics, 
+            Physics, and Computer Science. Achieved top grades and actively participated in coding competitions, 
+            robotics, sports, and music competitions. This foundation sparked my interest in technology and led 
+            to my decision to pursue computing and data science.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Research Focus Areas</h3>
+          <p class="card-content">
+            My academic research interests include artificial intelligence applications in social good, 
+            cybersecurity frameworks for emerging technologies, and data science methodologies for sustainable 
+            development. I'm particularly interested in how technology can be leveraged to address societal 
+            challenges and create positive impact.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Academic Achievements</h3>
+          <p class="card-content">
+            • Dean's List recognition for academic excellence<br>
+            • Winner of multiple coding competitions<br>
+            • Active member of Computer Science Society<br>
+            • Participant in various technical symposiums and conferences<br>
+            • Contributor to university research publications<br>
+            • Participant in national-level robotics competitions
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section class="detailed-section certificates-section" id="certificates-detail">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">Professional Credentials & Achievements</p>
+      </div>
+      
+      <div class="content-grid">
+        <div class="content-card">
+          <h3 class="card-title">Cloud Computing and Distributed Systems</h3>
+          <p class="card-content">
+            <strong>NPTEL - IIT Kharagpur (2023)</strong><br>
+            Completed comprehensive cloud computing certification covering cloud architectures, service models 
+            (IaaS, PaaS, SaaS), deployment strategies, and hands-on experience with major cloud platforms. 
+            Achieved top percentile in the certification exam. Gained expertise in distributed systems principles 
+            and their implementation in cloud environments.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Blockchain & Its Applications</h3>
+          <p class="card-content">
+            <strong>NPTEL - IIT Kharagpur (2025)</strong><br>
+            Earned certification in blockchain applications and distributed ledger technologies. Learned about 
+            cryptocurrency systems, smart contract development, and decentralized application (DApp) creation. 
+            Practical projects included developing blockchain-based solutions for real-world problems, with a 
+            focus on security and transparency applications.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Google Cybersecurity Professional Certificate</h3>
+          <p class="card-content">
+            <strong>Google (In Progress)</strong><br>
+            Currently completing Google's comprehensive cybersecurity program covering network security, incident 
+            response, threat analysis, and security frameworks. Gaining hands-on experience with security tools 
+            and learning industry best practices for protecting digital assets and infrastructure. This certification 
+            complements my technical skills with essential security knowledge.
+          </p>
+        </div>
+        
+        <div class="content-card">
+          <h3 class="card-title">Japanese Language Proficiency Test (JLPT N5)</h3>
+          <p class="card-content">
+            <strong>In Progress</strong><br>
+            Currently preparing for JLPT N5 certification, demonstrating foundational proficiency in Japanese language. 
+            This certification reflects my commitment to cross-cultural communication and global perspectives. Language 
+            skills have enhanced my ability to work with international teams and understand diverse cultural contexts 
+            in technology.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="detailed-section contact-section" id="contact-detail">
+    <div class="detailed-content">
+      <div class="section-header">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">Let's Connect & Collaborate</p>
+      </div>
+      
+      <div class="content-card">
+        <h3 class="card-title">Get In Touch</h3>
+        <p class="card-content">
+          I'm always excited to connect with fellow technology enthusiasts, potential collaborators, 
+          and industry professionals. Whether you're interested in discussing innovative projects, 
+          exploring collaboration opportunities, or simply want to have a conversation about technology 
+          and its impact on society, I'd love to hear from you!
+        </p>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">📧</span>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">shrutiashok445@gmail.com</div>
+        </div>
+        
+        <div class="contact-item">
+          <span class="contact-icon">📱</span>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+91 7550074988</div>
+        </div>
+        
+        <div class="contact-item">
+          <span class="contact-icon">💼</span>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">shruti-ashok-641326310</div>
+        </div>
+        
+        <div class="contact-item">
+          <span class="contact-icon">🐙</span>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">shrutiashok7</div>
+        </div>
+      </div>
+      
+      <div class="content-card">
+        <h3 class="card-title">What I'm Looking For</h3>
+        <p class="card-content">
+          • <strong>Internship Opportunities:</strong> Software development, data science, or cybersecurity roles<br>
+          • <strong>Collaboration Projects:</strong> Open source contributions and innovative tech solutions<br>
+          • <strong>Mentorship:</strong> Learning from experienced professionals in the tech industry<br>
+          • <strong>Networking:</strong> Connecting with like-minded individuals and tech communities<br>
+          • <strong>Speaking Opportunities:</strong> Sharing knowledge at tech events and conferences
+        </p>
+      </div>
+    </div>
+  </section>
 
   <script>
-    // Custom Cursor
+    // Cursor movement
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
+    
     document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      cursorFollower.style.left = e.clientX - 6 + 'px';
-      cursorFollower.style.top = e.clientY - 6 + 'px';
+      cursor.style.left = `${e.clientX - 4}px`;
+      cursor.style.top = `${e.clientY - 12}px`;
+      cursorFollower.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
     });
-
-    // Mode Toggle
+    
+    // Dark mode toggle
     const modeToggle = document.getElementById('mode-toggle');
-    const body = document.body;
-    let isDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (isDarkMode) {
-      body.classList.add('dark');
-      modeToggle.textContent = 'Light Mode';
-    } else {
-      modeToggle.textContent = 'Dark Mode';
-    }
+    const modeText = document.querySelector('.mode-text');
+    
     modeToggle.addEventListener('click', () => {
-      isDarkMode = !isDarkMode;
-      body.classList.toggle('dark');
-      localStorage.setItem('darkMode', isDarkMode);
-      modeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
+      document.body.classList.toggle('dark');
+      modeText.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+      
+      // Save preference to localStorage
+      localStorage.setItem('darkMode', document.body.classList.contains('dark'));
     });
-
-    // Rotation Controls
-    const rotateBtns = document.querySelectorAll('.rotate-btn');
-    const shape3d = document.querySelector('.shape-3d');
-    let rotation = 0;
-    rotateBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const direction = btn.getAttribute('data-direction');
-        if (direction === 'left') rotation -= 51.42;
-        else rotation += 51.42;
-        shape3d.style.transform = `rotateY(${rotation}deg)`;
-      });
-    });
-
-    // Face Click to Open Section
-    const faces = document.querySelectorAll('.face');
-    const detailedSections = document.querySelectorAll('.detailed-section');
-    const backBtn = document.querySelector('.back-btn');
+    
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark');
+      modeText.textContent = 'Light Mode';
+    }
+    
+    // 3D Shape rotation and mouse interaction
+    const shape3d = document.getElementById('shape3d');
+    const rotateLeftBtn = document.getElementById('rotateLeft');
+    const rotateRightBtn = document.getElementById('rotateRight');
     const hero = document.querySelector('.hero');
-
-    faces.forEach(face => {
-      face.addEventListener('click', () => {
-        const section = face.getAttribute('data-section');
-        detailedSections.forEach(s => s.classList.remove('active'));
-        document.getElementById(`${section}-detailed`).classList.add('active');
-        hero.classList.add('hide');
+    const nav = document.querySelector('.nav');
+    const backBtn = document.getElementById('back-btn');
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let baseRotationY = 0;
+    let currentRotationY = 0;
+    let currentRotationX = 0;
+    let currentSection = null;
+    
+    // Button rotation controls
+    rotateLeftBtn.addEventListener('click', () => {
+      baseRotationY -= 51.42;
+    });
+    
+    rotateRightBtn.addEventListener('click', () => {
+      baseRotationY += 51.42;
+    });
+    
+    // Mouse parallax
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth) - 0.5;
+      mouseY = (e.clientY / window.innerHeight) - 0.5;
+      
+      targetX = -mouseY * 15;
+      targetY = mouseX * 15;
+    });
+    
+    // Smooth animation loop for 3D shape
+    function animate() {
+      currentRotationX += (targetX - currentRotationX) * 0.05;
+      currentRotationY += ((baseRotationY + targetY) - currentRotationY) * 0.05;
+      
+      shape3d.style.transform = `rotateX(${currentRotationX}deg) rotateY(${currentRotationY}deg)`;
+      
+      requestAnimationFrame(animate);
+    }
+    animate();
+    
+    // Section navigation
+    function openSection(sectionName) {
+      const section = document.getElementById(sectionName + '-detail');
+      if (section) {
+        currentSection = sectionName;
+        section.classList.add('active');
+        hero.classList.add('hidden');
+        nav.classList.add('hidden');
         backBtn.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        
+        // Add a slight delay before allowing scroll
+        setTimeout(() => {
+          document.body.style.overflow = 'auto';
+        }, 800);
+      }
+    }
+    
+    function closeSection() {
+      if (currentSection) {
+        const section = document.getElementById(currentSection + '-detail');
+        if (section) {
+          section.classList.remove('active');
+          hero.classList.remove('hidden');
+          nav.classList.remove('hidden');
+          backBtn.classList.remove('show');
+          document.body.style.overflow = 'hidden';
+          
+          setTimeout(() => {
+            document.body.style.overflow = 'auto';
+          }, 800);
+        }
+        currentSection = null;
+      }
+    }
+    
+    // Face click interactions
+    document.querySelectorAll('.face').forEach(face => {
+      face.addEventListener('click', () => {
+        const section = face.dataset.section;
+        openSection(section);
+      });
+      
+      face.addEventListener('mouseenter', () => {
+        cursor.style.borderBottomColor = '#bb86fc';
+        cursor.style.transform += ' scale(1.3)';
+        cursorFollower.style.background = 'rgba(187, 134, 252, 0.5)';
+      });
+      
+      face.addEventListener('mouseleave', () => {
+        cursor.style.borderBottomColor = document.body.classList.contains('dark') ? '#e6ccff' : '#c8a2c8';
+        cursor.style.transform = cursor.style.transform.replace(' scale(1.3)', '');
+        cursorFollower.style.background = document.body.classList.contains('dark') ? 
+          'linear-gradient(45deg, rgba(230, 204, 255, 0.4), rgba(204, 221, 255, 0.4), rgba(255, 204, 238, 0.4))' : 
+          'rgba(200, 162, 200, 0.3)';
       });
     });
-
-    // Back Button
-    backBtn.addEventListener('click', () => {
-      detailedSections.forEach(s => s.classList.remove('active'));
-      hero.classList.remove('hide');
-      backBtn.classList.remove('show');
+    
+    // Navigation click handlers
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const section = link.dataset.section;
+        if (section) {
+          openSection(section);
+        }
+      });
+    });
+    
+    // Back button handler
+    backBtn.addEventListener('click', closeSection);
+    
+    // Escape key to close section
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && currentSection) {
+        closeSection();
+      }
+    });
+    
+    // Floating elements parallax
+    document.querySelectorAll('.floating-element').forEach((element, index) => {
+      document.addEventListener('mousemove', (e) => {
+        const speed = (index + 1) * 0.02;
+        const x = (e.clientX * speed);
+        const y = (e.clientY * speed);
+        element.style.transform += ` translate(${x}px, ${y}px)`;
+      });
     });
   </script>
 </body>
