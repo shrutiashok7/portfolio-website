@@ -27,7 +27,6 @@
       background: #000;
       color: #fff;
     }
-    /* Fix for body.dark color gradient: 'color' does not accept gradient, so use background for text via backgrounds */
     body.dark .hero h1,
     body.dark .hero p,
     body.dark .nav a,
@@ -54,11 +53,9 @@
       transition: none;
       mix-blend-mode: normal;
     }
-    
     body.dark .cursor {
       border-bottom-color: #e6ccff;
     }
-    
     .cursor-follower {
       position: fixed;
       width: 12px;
@@ -69,7 +66,6 @@
       z-index: 9998;
       transition: transform 0.1s ease;
     }
-    
     body.dark .cursor-follower {
       background: linear-gradient(45deg, rgba(230, 204, 255, 0.4), rgba(204, 221, 255, 0.4), rgba(255, 204, 238, 0.4));
     }
@@ -93,7 +89,6 @@
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
     }
-    
     body.dark #mode-toggle {
       border: 2px solid transparent;
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
@@ -102,13 +97,11 @@
       color: transparent;
       border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
     }
-    
     #mode-toggle:hover {
       background: #bb86fc;
       color: white;
       transform: scale(1.05);
     }
-    
     body.dark #mode-toggle:hover {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       color: #000;
@@ -137,13 +130,11 @@
       visibility: hidden;
       transform: translateX(-50px);
     }
-
     .back-btn.show {
       opacity: 1;
       visibility: visible;
       transform: translateX(0);
     }
-
     body.dark .back-btn {
       border: 2px solid transparent;
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
@@ -152,13 +143,11 @@
       color: transparent;
       border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
     }
-
     .back-btn:hover {
       background: #bb86fc;
       color: white;
       transform: scale(1.05);
     }
-
     body.dark .back-btn:hover {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       color: #000;
@@ -174,22 +163,18 @@
       z-index: 1000;
       transition: opacity 0.5s ease;
     }
-    
     .nav ul {
       list-style: none;
     }
-    
     .nav li {
       margin: 20px 0;
       opacity: 0.6;
       transition: all 0.3s ease;
     }
-    
     .nav li:hover {
       opacity: 1;
       transform: translateX(10px);
     }
-    
     .nav a {
       color: inherit;
       text-decoration: none;
@@ -197,7 +182,6 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-    
     body.dark .nav a {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
@@ -216,7 +200,6 @@
       overflow: hidden;
       transition: all 0.8s ease;
     }
-    
     .hero-content {
       position: absolute;
       top: 60px;
@@ -226,7 +209,6 @@
       z-index: 10;
       transition: all 0.8s ease;
     }
-    
     .hero h1 {
       font-size: clamp(1rem, 2.5vw, 1.5rem);
       font-weight: 300;
@@ -237,7 +219,6 @@
       opacity: 0;
       animation: fadeInUp 1s ease 0.5s forwards;
     }
-    
     body.dark .hero h1 {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
@@ -245,7 +226,6 @@
       color: transparent;
       letter-spacing: 15px;
     }
-    
     .hero p {
       font-size: clamp(0.6rem, 1.5vw, 0.9rem);
       font-weight: 300;
@@ -255,7 +235,6 @@
       opacity: 0;
       animation: fadeInUp 1s ease 0.7s forwards;
     }
-    
     body.dark .hero p {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
@@ -285,7 +264,6 @@
       z-index: 100;
       transition: all 0.8s ease;
     }
-    
     .rotate-btn {
       width: 50px;
       height: 50px;
@@ -302,7 +280,6 @@
       align-items: center;
       justify-content: center;
     }
-    
     body.dark .rotate-btn {
       border: 2px solid transparent;
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
@@ -311,23 +288,19 @@
       color: transparent;
       border-image: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee) 1;
     }
-    
     .rotate-btn:hover {
       background: #bb86fc;
       color: white;
       transform: scale(1.1);
     }
-    
     body.dark .rotate-btn:hover {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       color: #000;
       transform: scale(1.1);
     }
-    
     .rotate-btn:active {
       transform: scale(0.95);
     }
-    
     .shape-3d {
       width: 100%;
       height: 100%;
@@ -335,7 +308,6 @@
       transform-style: preserve-3d;
       transition: transform 0.1s ease-out;
     }
-    
     .face {
       position: absolute;
       width: 300px;
@@ -355,7 +327,6 @@
       padding: 15px;
       text-align: center;
     }
-    
     .face:hover {
       transform: translateZ(250px) scale(1.05) !important;
       border-color: rgba(187, 134, 252, 0.5);
@@ -364,21 +335,18 @@
       position: relative;
       box-shadow: 0 10px 20px rgba(187, 134, 252, 0.2);
     }
-    
     .face-title {
       font-size: 1.1rem;
       font-weight: 400;
       margin-bottom: 8px;
       color: #bb86fc;
     }
-    
     body.dark .face-title {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    
     .face-content {
       font-size: 0.8rem;
       opacity: 0.8;
@@ -387,7 +355,6 @@
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
-    
     body.dark .face-content {
       background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
       -webkit-background-clip: text;
@@ -395,7 +362,6 @@
       color: transparent;
       opacity: 0.9;
     }
-    
     .face:hover .face-content {
       max-height: 100px;
     }
@@ -408,7 +374,6 @@
     .about:hover {
       transform: rotateY(0deg) translateZ(250px) scale(1.05) !important;
     }
-    
     .skills { 
       background: rgba(255, 230, 245, 0.3);
       transform: rotateY(51.42deg) translateZ(200px);
@@ -416,7 +381,6 @@
     .skills:hover {
       transform: rotateY(51.42deg) translateZ(250px) scale(1.05) !important;
     }
-    
     .experience { 
       background: rgba(187, 230, 240, 0.3);
       transform: rotateY(102.84deg) translateZ(200px);
@@ -424,7 +388,6 @@
     .experience:hover {
       transform: rotateY(102.84deg) translateZ(250px) scale(1.05) !important;
     }
-    
     .projects { 
       background: rgba(188, 234, 207, 0.3);
       transform: rotateY(154.26deg) translateZ(200px);
@@ -432,7 +395,6 @@
     .projects:hover {
       transform: rotateY(154.26deg) translateZ(250px) scale(1.05) !important;
     }
-    
     .education { 
       background: rgba(251, 251, 188, 0.3);
       transform: rotateY(205.68deg) translateZ(200px);
@@ -440,7 +402,6 @@
     .education:hover {
       transform: rotateY(205.68deg) translateZ(250px) scale(1.05) !important;
     }
-    
     .certificates { 
       background: rgba(251, 161, 160, 0.3);
       transform: rotateY(257.1deg) translateZ(200px);
@@ -448,7 +409,6 @@
     .certificates:hover {
       transform: rotateY(257.1deg) translateZ(250px) scale(1.05) !important;
     }
-    
     .contact { 
       background: rgba(253, 221, 230, 0.3);
       transform: rotateY(308.52deg) translateZ(200px);
@@ -456,12 +416,10 @@
     .contact:hover {
       transform: rotateY(308.52deg) translateZ(250px) scale(1.05) !important;
     }
-    
     body.dark .face {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.1), rgba(204, 221, 255, 0.1), rgba(255, 204, 238, 0.1));
       border-color: rgba(230, 204, 255, 0.3);
     }
-    
     body.dark .face:hover {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.2), rgba(204, 221, 255, 0.2), rgba(255, 204, 238, 0.2));
       border-color: rgba(230, 204, 255, 0.6);
@@ -484,28 +442,23 @@
       overflow-y: auto;
       padding: 80px 40px 40px;
     }
-
     body.dark .detailed-section {
       background: #000;
     }
-
     .detailed-section.active {
       opacity: 1;
       visibility: visible;
       transform: scale(1);
     }
-
     .detailed-content {
       max-width: 1200px;
       margin: 0 auto;
       animation: slideInUp 0.6s ease 0.3s both;
     }
-
     .section-header {
       text-align: center;
       margin-bottom: 60px;
     }
-
     .section-title {
       font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 300;
@@ -513,19 +466,16 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-
     .section-subtitle {
       font-size: 1.2rem;
       opacity: 0.8;
       letter-spacing: 2px;
     }
-
     .content-grid {
       display: grid;
       gap: 40px;
       margin-bottom: 40px;
     }
-
     .content-card {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px);
@@ -534,31 +484,26 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
     }
-
     .content-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
-
     .card-title {
       font-size: 1.5rem;
       font-weight: 400;
       margin-bottom: 15px;
       letter-spacing: 2px;
     }
-
     .card-content {
       line-height: 1.8;
       font-size: 1rem;
       opacity: 0.9;
     }
-
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
-
     .skill-item {
       background: rgba(255, 255, 255, 0.1);
       padding: 20px;
@@ -567,17 +512,14 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
     }
-
     .skill-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-
     .timeline {
       position: relative;
       padding-left: 30px;
     }
-
     .timeline::before {
       content: '';
       position: absolute;
@@ -587,13 +529,11 @@
       width: 2px;
       background: linear-gradient(to bottom, rgba(187, 134, 252, 0.5), rgba(187, 134, 252, 0.1));
     }
-
     .timeline-item {
       position: relative;
       margin-bottom: 40px;
       padding-left: 40px;
     }
-
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -605,86 +545,94 @@
       border-radius: 50%;
       box-shadow: 0 0 0 4px rgba(187, 134, 252, 0.2);
     }
-
     .timeline-date {
       font-size: 0.9rem;
       opacity: 0.7;
       margin-bottom: 5px;
       letter-spacing: 1px;
     }
-
     .timeline-title {
       font-size: 1.3rem;
       font-weight: 400;
       margin-bottom: 10px;
       letter-spacing: 1px;
     }
-
     .timeline-company {
       font-size: 1rem;
       opacity: 0.8;
       margin-bottom: 15px;
       font-style: italic;
     }
-
     .timeline-description {
       line-height: 1.6;
       opacity: 0.9;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-item i {
+      width: 30px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    .contact-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+    body.dark .contact-item a {
+      background: linear-gradient(135deg, #e6ccff, #ccddff, #ffccee);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     /* Section-specific backgrounds */
     .about-section {
       background: linear-gradient(135deg, rgba(231, 205, 246, 0.9), rgba(231, 205, 246, 0.7));
     }
-
     .skills-section {
       background: linear-gradient(135deg, rgba(255, 230, 245, 0.9), rgba(255, 230, 245, 0.7));
     }
-
     .experience-section {
       background: linear-gradient(135deg, rgba(187, 230, 240, 0.9), rgba(187, 230, 240, 0.7));
     }
-
     .projects-section {
       background: linear-gradient(135deg, rgba(188, 234, 207, 0.9), rgba(188, 234, 207, 0.7));
     }
-
     .education-section {
       background: linear-gradient(135deg, rgba(251, 251, 188, 0.9), rgba(251, 251, 188, 0.7));
     }
-
     .certificates-section {
       background: linear-gradient(135deg, rgba(251, 161, 160, 0.9), rgba(251, 161, 160, 0.7));
     }
-
     .contact-section {
       background: linear-gradient(135deg, rgba(253, 221, 230, 0.9), rgba(253, 221, 230, 0.7));
     }
-
     body.dark .about-section {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
     }
-
     body.dark .skills-section {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
     }
-
     body.dark .experience-section {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
     }
-
     body.dark .projects-section {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
     }
-
     body.dark .education-section {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
     }
-
     body.dark .certificates-section {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
     }
-
     body.dark .contact-section {
       background: linear-gradient(135deg, rgba(230, 204, 255, 0.15), rgba(204, 221, 255, 0.15));
     }
@@ -700,7 +648,6 @@
         transform: translateY(0);
       }
     }
-
     @keyframes slideInUp {
       from {
         opacity: 0;
@@ -791,7 +738,9 @@
       <div class="content-grid">
         <div class="content-card">
           <h3 class="card-title">Who I Am</h3>
-          <p class="card-content">A passionate developer and designer with a love for creative solutions.</p>
+          <p class="card-content">
+            I am Shruti Ashok, currently pursuing a B.Tech in Computing and Data Science at Sai University. With a multidisciplinary background that combines software development and data science, I’m deeply passionate about creating technical solutions with social impact. I thrive in fast-paced, collaborative environments and enjoy projects that blend technology with creativity—whether it’s designing automation systems or crafting a visual identity for a cause.
+          </p>
         </div>
       </div>
     </div>
@@ -804,16 +753,36 @@
       </div>
       <div class="skills-grid">
         <div class="skill-item">
-          <h3>Frontend</h3>
-          <p>HTML, CSS, JavaScript</p>
+          <h3>Programming Languages</h3>
+          <p>C++, Python, Java, JavaScript, TypeScript</p>
         </div>
         <div class="skill-item">
-          <h3>Backend</h3>
-          <p>Node.js, Python</p>
+          <h3>Web Technologies</h3>
+          <p>HTML, CSS</p>
         </div>
         <div class="skill-item">
-          <h3>Design</h3>
-          <p>UI/UX, Figma</p>
+          <h3>Databases</h3>
+          <p>MySQL, MongoDB, DynamoDB</p>
+        </div>
+        <div class="skill-item">
+          <h3>Cloud Platforms</h3>
+          <p>AWS</p>
+        </div>
+        <div class="skill-item">
+          <h3>Tools</h3>
+          <p>GitHub, Postman, Linux</p>
+        </div>
+        <div class="skill-item">
+          <h3>Design Tools</h3>
+          <p>Canva, Figma</p>
+        </div>
+        <div class="skill-item">
+          <h3>Languages</h3>
+          <p>Japanese (JLPT N5 – In Progress)</p>
+        </div>
+        <div class="skill-item">
+          <h3>Certifications</h3>
+          <p>Cybersecurity (Google Professional Certificate – In Progress)</p>
         </div>
       </div>
     </div>
@@ -826,10 +795,28 @@
       </div>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-date">2022 - Present</div>
-          <h3 class="timeline-title">Web Developer</h3>
-          <p class="timeline-company">Creative Solutions Inc.</p>
-          <p class="timeline-description">Developed responsive websites and web applications.</p>
+          <div class="timeline-date">Internship</div>
+          <h3 class="timeline-title">LTI Mindtree</h3>
+          <p class="timeline-company">Banking Applications</p>
+          <p class="timeline-description">
+            Contributed to banking applications using Java, Python, and SQL. Work spanned backend logic, UI development, and scrum documentation.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Developer</div>
+          <h3 class="timeline-title">Acxhange</h3>
+          <p class="timeline-company">E-commerce Platform</p>
+          <p class="timeline-description">
+            Developed an e-commerce platform with TypeScript and AWS serverless technology.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Social Media Lead</div>
+          <h3 class="timeline-title">Rethinking Refugees</h3>
+          <p class="timeline-company">Awareness Campaigns</p>
+          <p class="timeline-description">
+            Designed impactful campaigns to raise awareness and ₹1 lakh in donations for Gaza, gaining 2,000+ new followers through effective visual storytelling.
+          </p>
         </div>
       </div>
     </div>
@@ -842,8 +829,28 @@
       </div>
       <div class="content-grid">
         <div class="content-card">
-          <h3 class="card-title">Portfolio Website</h3>
-          <p class="card-content">A responsive and interactive portfolio showcasing my work.</p>
+          <h3 class="card-title">To-Do App (C++)</h3>
+          <p class="card-content">
+            Command-line To-Do app written in C++ with features like file persistence and task searching.
+          </p>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Personal Portfolio Website</h3>
+          <p class="card-content">
+            Aesthetic personal portfolio website using HTML, CSS, and JavaScript.
+          </p>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">e-Yantra Robotics</h3>
+          <p class="card-content">
+            Built robots like the Swacchta Bot (with Verilog FSMs and path planning) and Hologlyph Bots (holonomic drive).
+          </p>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Blockchain & NFT Security</h3>
+          <p class="card-content">
+            Explored blockchain and NFT security through academic research projects.
+          </p>
         </div>
       </div>
     </div>
@@ -856,10 +863,20 @@
       </div>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="timeline-date">2018 - 2022</div>
-          <h3 class="timeline-title">Bachelor's in Computer Science</h3>
-          <p class="timeline-company">University of Technology</p>
-          <p class="timeline-description">Specialized in software development and design.</p>
+          <div class="timeline-date">Schooling</div>
+          <h3 class="timeline-title">BVM Global @ Bollineni Hillside, Chennai</h3>
+          <p class="timeline-company">Robotics, Sports, and Music Competitions</p>
+          <p class="timeline-description">
+            Participated in robotics, sports, and music competitions.
+          </p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2022–2026</div>
+          <h3 class="timeline-title">B.Tech in Computing and Data Science</h3>
+          <p class="timeline-company">Sai University</p>
+          <p class="timeline-description">
+            Courses in cloud computing, machine learning, and AI. Project-based learning and national-level competitions.
+          </p>
         </div>
       </div>
     </div>
@@ -872,8 +889,28 @@
       </div>
       <div class="content-grid">
         <div class="content-card">
-          <h3 class="card-title">Frontend Development</h3>
-          <p class="card-content">Certified in HTML, CSS, and JavaScript.</p>
+          <h3 class="card-title">Cloud Computing and Distributed Systems</h3>
+          <p class="card-content">
+            NPTEL, 2023 (IIT Kharagpur)
+          </p>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Blockchain & Its Applications</h3>
+          <p class="card-content">
+            NPTEL, 2025 (IIT Kharagpur)
+          </p>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Google Cybersecurity Professional Certificate</h3>
+          <p class="card-content">
+            In Progress
+          </p>
+        </div>
+        <div class="content-card">
+          <h3 class="card-title">Japanese Language Proficiency Test (JLPT N5)</h3>
+          <p class="card-content">
+            In Progress
+          </p>
         </div>
       </div>
     </div>
@@ -886,8 +923,28 @@
       </div>
       <div class="content-grid">
         <div class="content-card">
-          <h3 class="card-title">Email</h3>
-          <p class="card-content">hello@shrutiashok.com</p>
+          <h3 class="card-title">Open to Opportunities</h3>
+          <p class="card-content">
+            I’m open to internship and collaboration opportunities.
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span>📧</span>
+              <a href="mailto:shrutiashok445@gmail.com">shrutiashok445@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <span>📞</span>
+              <a href="tel:+917550074988">+91 7550074988</a>
+            </div>
+            <div class="contact-item">
+              <span>💻</span>
+              <a href="https://github.com/shrutiashok7" target="_blank">GitHub: shrutiashok7</a>
+            </div>
+            <div class="contact-item">
+              <span>🔗</span>
+              <a href="https://linkedin.com/in/shruti-ashok-641326310" target="_blank">LinkedIn: shruti-ashok-641326310</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -911,6 +968,8 @@
     if (isDarkMode) {
       body.classList.add('dark');
       modeToggle.textContent = 'Light Mode';
+    } else {
+      modeToggle.textContent = 'Dark Mode';
     }
 
     modeToggle.addEventListener('click', () => {
