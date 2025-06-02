@@ -1440,35 +1440,40 @@
       cursorFollower.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
     });
     
-    // Dark mode toggle
+    // Dark mode toggle - Fixed to work everywhere
     const modeToggle = document.getElementById('mode-toggle');
     const modeText = document.querySelector('.mode-text');
+    const backBtn = document.getElementById('back-btn');
+    const hero = document.querySelector('.hero');
+    const nav = document.querySelector('.nav');
+    const detailedSections = document.querySelectorAll('.detailed-section');
+    const shape3d = document.getElementById('shape3d');
+    const rotateLeftBtn = document.getElementById('rotateLeft');
+    const rotateRightBtn = document.getElementById('rotateRight');
     
-    // Check for saved dark mode preference
+    // Initialize dark mode from localStorage
     const darkMode = localStorage.getItem('darkMode') === 'true';
     if (darkMode) {
       document.body.classList.add('dark');
       modeText.textContent = 'Light Mode';
     }
     
-    modeToggle.addEventListener('click', () => {
+    // Handle dark mode toggle
+    modeToggle.addEventListener('click', function(e) {
       document.body.classList.toggle('dark');
       const isDark = document.body.classList.contains('dark');
       modeText.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-      
-      // Save preference to localStorage
       localStorage.setItem('darkMode', isDark);
+      e.stopPropagation();
     });
     
-    // 3D Shape rotation and mouse interaction
-    const shape3d = document.getElementById('shape3d');
-    const rotateLeftBtn = document.getElementById('rotateLeft');
-    const rotateRightBtn = document.getElementById('rotateRight');
-    const hero = document.querySelector('.hero');
-    const nav = document.querySelector('.nav');
-    const backBtn = document.getElementById('back-btn');
-    const detailedSections = document.querySelectorAll('.detailed-section');
+    // Handle back button
+    backBtn.addEventListener('click', function(e) {
+      closeSection();
+      e.stopPropagation();
+    });
     
+    // 3D shape variables
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
@@ -1479,12 +1484,14 @@
     let currentSection = null;
     
     // Button rotation controls
-    rotateLeftBtn.addEventListener('click', () => {
+    rotateLeftBtn.addEventListener('click', (e) => {
       baseRotationY -= 51.42;
+      e.stopPropagation();
     });
     
-    rotateRightBtn.addEventListener('click', () => {
+    rotateRightBtn.addEventListener('click', (e) => {
       baseRotationY += 51.42;
+      e.stopPropagation();
     });
     
     // Mouse parallax
@@ -1535,24 +1542,25 @@
         const section = document.getElementById(`${currentSection}-detail`);
         if (section) {
           section.classList.remove('active');
-          hero.classList.remove('hidden');
-          nav.classList.remove('hidden');
-          backBtn.classList.remove('show');
-          document.body.style.overflow = 'hidden';
-          
-          setTimeout(() => {
-            document.body.style.overflow = 'auto';
-          }, 800);
         }
+        hero.classList.remove('hidden');
+        nav.classList.remove('hidden');
+        backBtn.classList.remove('show');
+        document.body.style.overflow = 'hidden';
+        
+        setTimeout(() => {
+          document.body.style.overflow = 'auto';
+        }, 800);
         currentSection = null;
       }
     }
     
     // Face click interactions
     document.querySelectorAll('.face').forEach(face => {
-      face.addEventListener('click', () => {
+      face.addEventListener('click', (e) => {
         const section = face.dataset.section;
         openSection(section);
+        e.stopPropagation();
       });
       
       face.addEventListener('mouseenter', () => {
@@ -1580,9 +1588,6 @@
         }
       });
     });
-    
-    // Back button handler
-    backBtn.addEventListener('click', closeSection);
     
     // Escape key to close section
     document.addEventListener('keydown', (e) => {
